@@ -1,0 +1,47 @@
+body {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+header, footer {
+    background-color: rgb(0, 0, 131);
+    color: white;
+    padding: 1em;
+}
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.news > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news a {
+    color: black;
+    text-decoration: none;
+}
+
+.news a:hover {
+    color: grey
+}
+
+img {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+
+a.torna {
+    display: inline-block;
+    text-decoration: none;
+    margin: 1em 0;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    border-radius: .5em;
+    font-weight: bold;
+}
