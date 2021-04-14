@@ -32,7 +32,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Noticies::index');
 
 /*
  * --------------------------------------------------------------------
@@ -51,3 +51,7 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
+$routes->get('/api/noticies/(:num)', 'NoticiesApi::noticies/$1');
+$routes->get('/api/noticia/(:num)', 'NoticiesApi::noticia/$1');
+$routes->get('/api/categoria/(:segment)/(:num)', 'NoticiesApi::categoria/$1/$2');

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\NoticiesModel;
+use App\Libraries\GroceryCrud;
 
 class Noticies extends BaseController
 {
@@ -23,4 +24,17 @@ class Noticies extends BaseController
 
         return view('noticia',$data);
     }
+
+    public function crud() {
+        $crud = new GroceryCrud();
+
+	    $crud->setTable('noticies');
+        $crud->setRelationNtoN('Categories', 'categoria_noticia', 'categories', 'id_noticia', 'id_categoria', 'nom');
+        $crud->setTexteditor(['contingut']);
+
+	    $output = $crud->render();
+
+		return view('crud', (array)$output);
+    }
+
 }

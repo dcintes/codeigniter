@@ -18,7 +18,7 @@
         
         <?php foreach ($noticies as &$noticia) { ?>
             <div>
-                <h2><a href="/noticies/noticia/<?php echo $noticia['id'] ?>">
+                <h2><a href="<?php echo base_url(); ?>/noticies/noticia/<?php echo $noticia['id'] ?>">
                     <?php echo $noticia['titol']; ?>
                 </a></h2>
                 <p class="data"><?php echo $noticia['data_publicacio']; ?></p>

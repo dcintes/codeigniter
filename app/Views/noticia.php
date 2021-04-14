@@ -15,13 +15,20 @@
     </header>
 
     <main>
-        <a href="/noticies" class="torna"> < Totes les noticies</a>
+        <a href="<?php echo base_url(); ?>/noticies" class="torna"> < Totes les noticies</a>
         <div>
             <h2>
                 <?php echo $noticia['titol']; ?>
             </h2>
-            <img src="<?php echo base_url('images/'.$noticia['imatge']);?>" alt="">
-            <p class="data"><?php echo $noticia['data_publicacio']; ?></p>
+            <p>Autor: <?php echo $noticia['autor'] ?></p>
+            <p class="data">Data publicació: <?php echo $noticia['data_publicacio']; ?></p>
+            <img src="<?php 
+                if(preg_match("/^http.*/", $noticia['imatge'])) {
+                    echo $noticia['imatge'];
+                } else {
+                    echo base_url('images/'.$noticia['imatge']);
+                }
+                ?>" alt="">
             <?php echo $noticia['contingut'] ?>
         </div>
         
